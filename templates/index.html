@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExoWay</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="./../static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🗺️ExoWay - Route Optimization Engine</h1>
+        <p class="subtitle">
+          Compare Dijkstra's, A*, and Genetic Algorithm performance
+        </p>
+      </header>
+
+      <div class="main-content">
+        <!-- Control Panel -->
+        <div class="control-panel">
+          <div class="card">
+            <h2>Route Configuration</h2>
+
+            <div class="form-group">
+              <label for="algorithm">Algorithm:</label>
+              <select id="algorithm" class="input-field">
+                <option value="dijkstra">Dijkstra's Algorithm</option>
+                <option value="astar">A* Algorithm</option>
+                <option value="genetic">Genetic Algorithm</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="metric">Optimize For:</label>
+              <select id="metric" class="input-field">
+                <option value="distance">Shortest Distance</option>
+                <option value="time">Fastest Time</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="start">Start Node:</label>
+              <select id="start" class="input-field">
+                <option value="">Loading...</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="end">End Node:</label>
+              <select id="end" class="input-field">
+                <option value="">Loading...</option>
+              </select>
+            </div>
+
+            <div
+              class="form-group"
+              id="waypointsContainer"
+              style="display: none"
+            >
+              <label>Waypoints:</label>
+              <div id="waypointsList"></div>
+              <button class="btn btn-secondary" onclick="addWaypoint()">
+                + Add Waypoint
+              </button>
+            </div>
+
+            <div class="button-group">
+              <button class="btn btn-primary" onclick="findRoute()">
+                Find Route
+              </button>
+              <button class="btn btn-secondary" onclick="compareAlgorithms()">
+                Compare All
+              </button>
+              <button class="btn btn-secondary" onclick="randomNodes()">
+                Random Nodes
+              </button>
+              <button class="btn btn-tertiary" onclick="clearMap()">
+                Clear Map
+              </button>
+            </div>
+          </div>
+
+          <!-- Results Panel -->
+          <div class="card results-card">
+            <h2>Results</h2>
+            <div id="results">
+              <p class="text-muted">
+                Configure route and click "Find Route" to see results
+              </p>
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="card" id="comparisonCard" style="display: none">
+            <h2>Algorithm Comparison</h2>
+            <div id="comparisonTable"></div>
+          </div>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container">
+          <div class="card map-card">
+            <div id="map"></div>
+          </div>
+
+          <!-- Legend -->
+          <div class="card legend-card">
+            <h3>Map Legend</h3>
+            <div class="legend-items">
+              <div class="legend-item">
+                <span class="legend-marker start-marker"></span>
+                <span>Start Node</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-marker end-marker"></span>
+                <span>End Node</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-marker waypoint-marker"></span>
+                <span>Waypoint</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-line dijkstra-line"></span>
+                <span>Dijkstra</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-line astar-line"></span>
+                <span>A*</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-line genetic-line"></span>
+                <span>Genetic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading" class="loading-overlay">
+      <div class="spinner"></div>
+      <p>Computing optimal route...</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="./../static/script.js"></script>
+  </body>
+</html>
