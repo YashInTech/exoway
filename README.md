@@ -28,7 +28,7 @@ A comprehensive route optimization system implementing **Dijkstra's Algorithm**,
 
 Before you begin, ensure you have the following installed:
 
-- **Python 3.8 or higher** - [Download Python](https://www.python.org/downloads/)
+- **Python 3 or later** - [Download Python](https://www.python.org/downloads/)
 - **pip** (Python package installer) - Usually comes with Python
 - A modern web browser (Chrome, Firefox, Safari, or Edge)
 
@@ -61,26 +61,6 @@ route-optimization/
 3. **IMPORTANT**: Check "Add Python to PATH" during installation
 4. Click "Install Now"
 
-**Mac:**
-
-```bash
-# Using Homebrew (recommended)
-brew install python3
-
-# Or download from python.org
-```
-
-**Linux:**
-
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install python3 python3-pip
-
-# Fedora
-sudo dnf install python3 python3-pip
-```
-
 ### Step 3: Verify Python Installation
 
 Open your terminal/command prompt and run:
@@ -91,7 +71,7 @@ python --version
 python3 --version
 ```
 
-You should see something like `Python 3.8.x` or higher.
+If you see the Python version number, you have successfully installed Python.
 
 ### Step 4: Create Project Directory
 
@@ -132,6 +112,8 @@ This will install:
 - NumPy (numerical computations)
 - Requests (HTTP library)
 - Geopy (geographical calculations)
+- NetworkX (graph analysis)
+- OSMnx (OSM data processing)
 
 ### Step 7: Run the Application
 
@@ -422,10 +404,8 @@ After getting it running:
 
 ## 📄 License
 
-This project is provided as-is for educational purposes.
-
----
+## This project is released under the [MIT License](LICENSE).
 
 **Happy Optimizing! 🗺️✨**
 
-For questions or improvements, feel free to extend and modify the code!
+For questions or improvements, feel free to [open an issue](https://github.com/YashInTech/exoway/issues)!
