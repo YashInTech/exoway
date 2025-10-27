@@ -404,7 +404,7 @@ After getting it running:
 
 ## 📄 License
 
-## This project is released under the [MIT License](LICENSE).
+This project is released under the [MIT License](LICENSE).
 
 **Happy Optimizing! 🗺️✨**
 
